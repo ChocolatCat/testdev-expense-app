@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render without crashing 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <form
+        name="expenseForm"
+      >
+        <input
+          placeholder="Description"
+          type="text"
+          value="Gum"
+        />
+        <input
+          placeholder="Amount"
+          type="text"
+          value="10"
+        />
+        <div
+          class="react-datepicker-wrapper"
+        >
+          <div
+            class="react-datepicker__input-container"
+          >
+            <input
+              class=""
+              type="text"
+              value="10/08/2022"
+            />
+          </div>
+        </div>
+        <textarea
+          placeholder="Add a note to this expense! (optional)"
+        />
+        <button
+          name="submit"
+        >
+          Add Expense
+        </button>
+      </form>
+    </div>
+    <button>
+      Remove
+    </button>
+  </div>
+</DocumentFragment>
+`;

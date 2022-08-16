@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ExpenseForm 1`] = `
+<DocumentFragment>
+  <div>
+    <form
+      name="expenseForm"
+    >
+      <input
+        placeholder="Description"
+        type="text"
+        value=""
+      />
+      <input
+        placeholder="Amount"
+        type="text"
+        value=""
+      />
+      <div
+        class="react-datepicker-wrapper"
+      >
+        <div
+          class="react-datepicker__input-container"
+        >
+          <input
+            class=""
+            type="text"
+            value="10/08/2022"
+          />
+        </div>
+      </div>
+      <textarea
+        placeholder="Add a note to this expense! (optional)"
+      />
+      <button
+        name="submit"
+      >
+        Add Expense
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Should render ExpenseForm with data 1`] = `
+<DocumentFragment>
+  <div>
+    <form
+      name="expenseForm"
+    >
+      <input
+        placeholder="Description"
+        type="text"
+        value="Rent"
+      />
+      <input
+        placeholder="Amount"
+        type="text"
+        value="40000"
+      />
+      <div
+        class="react-datepicker-wrapper"
+      >
+        <div
+          class="react-datepicker__input-container"
+        >
+          <input
+            class=""
+            type="text"
+            value="06/08/2022"
+          />
+        </div>
+      </div>
+      <textarea
+        placeholder="Add a note to this expense! (optional)"
+      >
+        For august
+      </textarea>
+      <button
+        name="submit"
+      >
+        Add Expense
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

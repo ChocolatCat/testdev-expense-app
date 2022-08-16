@@ -1,0 +1,12 @@
+{
+    "moduleDirectories": [
+        "node_modules"
+    ],
+    "setupFilesAfterEnv": [
+        "<rootDir>/src/tests/setupTests.js"
+    ],
+    "transformIgnorePatterns": [
+        "/node_modules/(?!nanoid)",
+        "/node_modules/(?!url-alphabet)"
+    ]
+}

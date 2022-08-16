@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ExpenseDashboardPage 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <input
+        placeholder="Filter by Text"
+        type="text"
+        value=""
+      />
+      <select
+        name="Sort By"
+      >
+        <option
+          value="date"
+        >
+          Date
+        </option>
+        <option
+          value="amount"
+        >
+          Amount
+        </option>
+      </select>
+      <div
+        class="react-datepicker-wrapper"
+      >
+        <div
+          class="react-datepicker__input-container"
+        >
+          <input
+            class=""
+            type="text"
+            value="01/08/2022"
+          />
+        </div>
+      </div>
+      <div
+        class="react-datepicker-wrapper"
+      >
+        <div
+          class="react-datepicker__input-container"
+        >
+          <input
+            class=""
+            type="text"
+            value="31/08/2022"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>
+        No Expenses Added!
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

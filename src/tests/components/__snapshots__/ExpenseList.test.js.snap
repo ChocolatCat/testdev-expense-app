@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ExpenseList with empty message 1`] = `
+<DocumentFragment>
+  <div>
+    <p>
+      No Expenses Added!
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Should render ExpenseList with expenses 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <a
+        href="/edit/1234"
+      >
+        <h3>
+          Gum
+        </h3>
+      </a>
+      <h5>
+        1234
+      </h5>
+      <p>
+        10 - 1660132800000
+      </p>
+      <small />
+    </div>
+  </div>
+</DocumentFragment>
+`;

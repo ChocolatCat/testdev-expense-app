@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as snapshot 1`] = `
+<DocumentFragment>
+  <header>
+    <h1>
+      Expense App!
+    </h1>
+    <a
+      aria-current="page"
+      class="is-active"
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      class="inactive"
+      href="/create"
+    >
+      Create expense
+    </a>
+  </header>
+</DocumentFragment>
+`;
