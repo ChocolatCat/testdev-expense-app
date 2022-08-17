@@ -8,7 +8,8 @@ const publicFolder = path.join(__dirname, 'public');
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: publicFolder,
+        publicPath: '/dist/',
+        path: path.join(publicFolder, 'dist'),
         filename: 'bundle.js'
     },
     module: {
