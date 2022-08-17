@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux';
 import AppRouter from './router/AppRouter'
 import appStore from './store/appStore';
-import { addExpense } from './feature/expenseSlice';
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import "react-datepicker/dist/react-datepicker.css";
 
 const store = appStore();
+
+console.log('gaming');
 
 //React 18
 const container = document.getElementById("app");

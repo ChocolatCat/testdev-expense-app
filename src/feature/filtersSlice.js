@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import moment from 'moment';
+import { startOfMonth, lastDayOfMonth } from 'date-fns';
 
 //Redux toolkit syntax
 //Name defines the name in the store, initial state initializes the value and reducers are the actions that can manipulate the value
@@ -12,8 +12,8 @@ const filtersSlice = createSlice({
     initialState: {
         text: '',
         sortBy: 'date',
-        startDate: Date.parse(moment().startOf('month')),
-        endDate: Date.parse(moment().endOf('month'))
+        startDate: Date.parse(startOfMonth(Date.now())),
+        endDate: Date.parse(lastDayOfMonth(Date.now()))
     },
     reducers: {
         setTextFilter: (state, action) => {

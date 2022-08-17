@@ -1,10 +1,11 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 //entry -> output
 //Path to the project root -> __dirname
 const publicFolder = path.join(__dirname, 'public');
 
 module.exports = {
-    mode: 'development',
     entry: './src/app.js',
     output: {
         path: publicFolder,
@@ -20,24 +21,19 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
-                ]
+                ],
             }
         ]
     },
-    devtool: 'eval-cheap-module-source-map',
-    devServer: {
-        static: {
-            directory: publicFolder
-        },
-        compress: true,
-        port: 10800,
-        https: true,
-        open:true,
-        historyApiFallback: true
-    }
+    optimization: {
+        minimize: true,
+        minimizer: [
+            `...`,
+            new CssMinimizerPlugin(),
+        ],
+    },
+    plugins: [new MiniCssExtractPlugin()],
 };
-
-// loader
