@@ -21,11 +21,8 @@ exports[`Should render ExpenseList with expenses 1`] = `
           Gum
         </h3>
       </a>
-      <h5>
-        1234
-      </h5>
       <p>
-        10 - 1660132800000
+        $10-August 10th, 2022
       </p>
       <small />
     </div>

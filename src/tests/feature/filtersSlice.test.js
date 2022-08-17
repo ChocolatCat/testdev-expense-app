@@ -55,7 +55,7 @@ test('Should setup default filters', () => {
         text: '',
         sortBy: 'date',
         startDate: 1659326400000,
-        endDate: 1662004799000
+        endDate: 1661918400000
     });
 });
 

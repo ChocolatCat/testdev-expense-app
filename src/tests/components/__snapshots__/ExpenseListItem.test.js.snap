@@ -10,11 +10,8 @@ exports[`Should render ExpenseListItem 1`] = `
         Rent
       </h3>
     </a>
-    <h5>
-      2
-    </h5>
     <p>
-      40000 - 1659787200000
+      $40,000-August 6th, 2022
     </p>
     <small>
       For august

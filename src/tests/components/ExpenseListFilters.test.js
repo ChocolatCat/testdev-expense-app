@@ -22,7 +22,7 @@ beforeEach(() => {
   mockedUsedNavigate.mockReset();
 });
 
-jest.useFakeTimers().setSystemTime(new Date(2022, 7, 10));
+jest.useFakeTimers().setSystemTime(new Date(2022, 7, 10, 0, 0, 0, 0));
 
 it('Should render the filters without crashing', () => {
     //Must be in a provider to have a store. 
@@ -94,5 +94,5 @@ it('Should set end date', () => {
     const endDate = getAllByRole('textbox')[2];
     fireEvent.mouseDown(endDate);
     fireEvent.change(endDate, {target:{value: '08-14-2022'}});
-    expect(store.getState().filters.endDate).toBe(1660535999000);
+    expect(store.getState().filters.endDate).toBe(1660449600000);
 });
