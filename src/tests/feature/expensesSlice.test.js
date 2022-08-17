@@ -1,4 +1,4 @@
-import expensesReducer, { addExpense, editExpense, removeExpense } from "../../feature/expenseSlice";
+import expensesReducer, { addExpense, editExpense, removeExpense, expensesTotal } from "../../feature/expenseSlice";
 import {expenses} from '../fixtures/expenses';
 import appStore from '../../store/appStore';
 

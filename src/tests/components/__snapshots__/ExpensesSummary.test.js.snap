@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render with 1 expense added 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Viewing 1 expense totalling $10.
+    </h1>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Should render with multiple expenses added 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Viewing 3 expenses totalling $50,010.
+    </h1>
+  </div>
+</DocumentFragment>
+`;

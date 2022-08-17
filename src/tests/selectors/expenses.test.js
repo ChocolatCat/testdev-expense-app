@@ -1,4 +1,4 @@
-import { selectExpenses, selectExpenseById } from "../../selectors/expenses";
+import { selectExpenses, selectExpenseById, selectExpensesTotal } from "../../selectors/expenses";
 import {subDays, addDays} from 'date-fns';
 import {today, expenses} from '../fixtures/expenses';
 
@@ -58,3 +58,17 @@ test('should sort by date', () => {
     expect(result).toEqual([ expenses[0], expenses[2], expenses[1] ]);
 });
 
+test('Should return 0 with an empty expense array', () => {
+    const response = selectExpensesTotal([]);
+    expect(response).toBe(0);
+});
+
+test('Should return result with only one element in array', () => {
+    const response = selectExpensesTotal([expenses[0]]);
+    expect(response).toBe(10);
+});
+
+test('Should return result with multiple elements in array', () => {
+    const response = selectExpensesTotal(expenses);
+    expect(response).toBe(50010);
+});
