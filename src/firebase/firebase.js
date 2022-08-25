@@ -28,8 +28,10 @@ const db = getDatabase();
 
 export {app, db as default };
 
-/*
 
+
+
+/*
 //Read the data. Fires whenever the data changes
 onValue(expensePath, (snapshot) => {
   const expenses = [];
