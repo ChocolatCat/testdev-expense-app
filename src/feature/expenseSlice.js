@@ -1,5 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
-import {nanoid} from 'nanoid';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import db, {app} from '../firebase/firebase';
+import { ref, push } from 'firebase/database';
+
+//Thunk syntax for async functions
+export const addExpense = createAsyncThunk('expenses/addExpense', 
+async (expense = {}, thunkAPI) => {
+    const {description = "No description", note = "No note", amount = 0, createdAt = 0} = expense;
+    const expenseData = {description, note, amount, createdAt};
+    const newExpense = push(ref(db, 'expenses'), expenseData);
+    return {id: newExpense.key, ...expenseData};
+});
 
 //Redux toolkit syntax
 //Name defines the name in the store, initial state initializes the value and reducers are the actions that can manipulate the value
@@ -11,28 +21,6 @@ export const expenseSlice = createSlice({
     name: 'expenses',
     initialState: [],
     reducers: {
-        addExpense: {
-            reducer: (state, action) => {
-                //destructuring to work easily with values
-                const {id, createdAt, description, note, amount} = action.payload;
-                const expense = {
-                    id: id,
-                    description: description,
-                    note: note,
-                    amount: amount,
-                    createdAt: createdAt
-                };
-                state.push(expense);
-            },
-            //We prepare the elements to work on
-            prepare: (expense) => {
-                //We generate an ID
-                const id = nanoid();
-                //We grab the elements sent to the reducer. We also prepare default values
-                const {description = "No description", note = "No note", amount = 0, createdAt = 0} = expense;
-                return {payload: {id, createdAt, description, note, amount, createdAt}};
-            }
-        },
         removeExpense: (state, {payload}) => {
             //We filter the element with the corresponding ID
             return state.filter(({id}) => id !== payload);
@@ -47,9 +35,17 @@ export const expenseSlice = createSlice({
                 }
             });
         }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(addExpense.fulfilled, (state, { payload }) => {
+            state.push(payload);
+        }),
+        builder.addCase(addExpense.rejected, (state, { payload }) => {
+            console.log('Tasukete!');
+        })
     }
 });
 
-export const {addExpense, removeExpense, editExpense, expensesTotal} = expenseSlice.actions;
+export const { removeExpense, editExpense } = expenseSlice.actions;
 
 export default expenseSlice.reducer;
