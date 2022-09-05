@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {auth, googleAuthProvider} from '../firebase/firebase';
-import { signInWithPopup, signOut } from 'firebase/auth';
+import { signInWithRedirect, signOut } from 'firebase/auth';
 
 export const login = createAsyncThunk('user/login', 
 async (arg, thunkAPI) => {
-    signInWithPopup(auth, googleAuthProvider).then((result) => {
+    signInWithRedirect(auth, googleAuthProvider).then((result) => {
         return true;
     });
 });
