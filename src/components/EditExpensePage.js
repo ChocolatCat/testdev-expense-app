@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useParams, useNavigate} from 'react-router-dom';
+
 import { selectExpenseById } from '../selectors/expenses';
 import ExpenseForm from './ExpenseForm';
 import {editExpense, removeExpense} from '../feature/expenseSlice'
@@ -21,12 +22,12 @@ const EditExpensePage = () => {
                         id: id,
                         updates: expense
                     }));
-                    navigate('/');
+                    navigate('/dashboard');
                 }}
             />
             <button onClick={()=>{
                 dispatch(removeExpense(id));
-                navigate('/');
+                navigate('/dashboard');
             }}>Remove</button>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../feature/expenseSlice';
@@ -13,7 +13,7 @@ const AddExpensePage = () => {
             <ExpenseForm 
                 onSubmit={ (expense) => {
                     dispatch(addExpense(expense));
-                    navigate('/');
+                    navigate('/dashboard');
                 }}
             />
         </div>

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import db, {app} from '../firebase/firebase';
-import { ref, push, get, remove } from 'firebase/database';
+import { ref, push, get, remove, update } from 'firebase/database';
 
 //Thunk syntax for async functions
 export const addExpense = createAsyncThunk('expenses/addExpense', 
@@ -14,6 +14,13 @@ async (expense = {}, thunkAPI) => {
 export const removeExpense = createAsyncThunk('expenses/removeExpense', 
 async (id, thunkAPI) => {
     await remove(ref(db, 'expenses/'+id));
+});
+
+export const editExpense = createAsyncThunk('expenses/editExpense', 
+async (expense, thunkAPI) => {
+    await update(ref(db, 'expenses/'+expense.id), {
+        ...expense.updates
+    });
 });
 
 export const setExpenses = createAsyncThunk('expenses/setExpenses', 
@@ -32,8 +39,6 @@ async (thunkAPI) => {
     return expenses;
 });
 
-const initialState = [];
-
 //Redux toolkit syntax
 //Name defines the name in the store, initial state initializes the value and reducers are the actions that can manipulate the value
 //Actions are defined by types, using the name as the first thing then a / to define the action. ie. counter/increment
@@ -42,18 +47,8 @@ const initialState = [];
 
 export const expenseSlice = createSlice({
     name: 'expenses',
-    initialState,
+    initialState: [],
     reducers: {
-        editExpense: (state, {payload}) => {
-            return state.map( (expense) => {
-                if(expense.id === payload.id){
-                    return {...expense, ...payload.updates};
-                }
-                else{
-                    return expense;
-                }
-            });
-        }
     },
     extraReducers: (builder) => {
         builder.addCase(addExpense.fulfilled, (state, { payload }) => {
@@ -78,10 +73,16 @@ export const expenseSlice = createSlice({
         }),
         builder.addCase(removeExpense.rejected, (state, { payload }) => {
             console.log("Failed to Remove");
+        }),
+        builder.addCase(editExpense.fulfilled, (state, { payload }) => {
+            console.log("Edited");
+        }),
+        builder.addCase(editExpense.rejected, (state, { payload }) => {
+            console.log("Failed to Edit");
         })
     }
 });
 
-export const { editExpense } = expenseSlice.actions;
+//export const { editExpense } = expenseSlice.actions;
 
 export default expenseSlice.reducer;

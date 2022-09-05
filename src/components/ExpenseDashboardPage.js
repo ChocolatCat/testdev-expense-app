@@ -9,11 +9,11 @@ import { selectExpenses, selectExpensesTotal } from '../selectors/expenses';
 const ExpenseDashboardPage = () => {
     const dispatch = useDispatch();
     //We make sure the read is only made once
+    const visibleExpenses = useSelector(state => selectExpenses(state.expenses, state.filters));
     useEffect(() => {
         dispatch(setExpenses());
     }, [dispatch]);
     //We get the rendered expenses
-    const visibleExpenses = useSelector(state => selectExpenses(state.expenses, state.filters));
     //We get them to sum them up
     const expensesCount = visibleExpenses.length;
     const expensesTotal = selectExpensesTotal(visibleExpenses);
