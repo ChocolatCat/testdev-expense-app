@@ -7,12 +7,13 @@ import { addExpense } from '../feature/expenseSlice';
 const AddExpensePage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const uid = useSelector(state => state.user.uid);
     return (
         <div>
             <h1>Add New Expense</h1>
             <ExpenseForm 
                 onSubmit={ (expense) => {
-                    dispatch(addExpense(expense));
+                    dispatch(addExpense({expense, uid}));
                     navigate('/dashboard');
                 }}
             />

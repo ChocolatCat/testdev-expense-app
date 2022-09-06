@@ -13,6 +13,7 @@ const EditExpensePage = () => {
     const {id} = useParams();
     const navigate = useNavigate();
     const expense = useSelector(state => selectExpenseById(state.expenses, id));
+    const uid = useSelector(state => state.user.uid);
     return (
         <div>
             <ExpenseForm 
@@ -20,13 +21,14 @@ const EditExpensePage = () => {
                 onSubmit={(expense) => {
                     dispatch(editExpense({
                         id: id,
-                        updates: expense
+                        updates: expense,
+                        uid: uid
                     }));
                     navigate('/dashboard');
                 }}
             />
             <button onClick={()=>{
-                dispatch(removeExpense(id));
+                dispatch(removeExpense({id, uid}));
                 navigate('/dashboard');
             }}>Remove</button>
         </div>

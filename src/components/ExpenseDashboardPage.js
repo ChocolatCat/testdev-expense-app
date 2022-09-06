@@ -10,8 +10,9 @@ const ExpenseDashboardPage = () => {
     const dispatch = useDispatch();
     //We make sure the read is only made once
     const visibleExpenses = useSelector(state => selectExpenses(state.expenses, state.filters));
+    const user = useSelector(state => state.user.uid);
     useEffect(() => {
-        dispatch(setExpenses());
+        dispatch(setExpenses(user));
     }, [dispatch]);
     //We get the rendered expenses
     //We get them to sum them up
