@@ -1,0 +1,26 @@
+.box-layout{
+    align-items: center;
+    background: url('../../../public/images/kyaru.png');
+    background-size: cover;
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+.box-layout__box{
+    background: fade-out($color: $kyaru-purple, $amount: .15);
+    border-radius: 3px;
+    padding: $l-size $m-size;
+    text-align: center;
+}
+
+.box-layout__title{
+    margin: 0 0 $m-size 0;
+    line-height: 1;
+    color:$grey-bone;
+}
+
+.box-layout__subtitle{
+    color: $light-grey;
+}

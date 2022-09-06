@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logout } from '../feature/userSlice';
 
 //React Router v6 -> activeClassName changes to that if statement
@@ -10,17 +10,15 @@ const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.isLogged);
     return (
-        <header>
-            <h1>Expense App!</h1>
-            {user ?
-            <div>
-                <NavLink to="/dashboard" className={({isActive}) => (isActive ? 'is-active' : 'inactive')}>Home</NavLink>
-                <NavLink to="/create" className={({isActive}) => (isActive ? 'is-active' : 'inactive')}>Create expense</NavLink>
-                <button onClick={()=>{
-                    dispatch(logout());
-                }}>Logout</button>
+        <header className="header">
+            <div className="content-container">
+                <div className="header__content">
+                    <Link className="header__title" to="/dashboard"><h1>Track Expenses</h1></Link>
+                    <button className="button button--link" onClick={()=>{
+                        dispatch(logout());
+                    }}>Logout</button>
+                </div>
             </div>
-            : <p></p>}
         </header>
     );
 };

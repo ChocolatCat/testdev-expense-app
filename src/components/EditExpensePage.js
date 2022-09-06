@@ -17,6 +17,7 @@ const EditExpensePage = () => {
     return (
         <div>
             <ExpenseForm 
+                mode="edit"
                 expense={expense}
                 onSubmit={(expense) => {
                     dispatch(editExpense({

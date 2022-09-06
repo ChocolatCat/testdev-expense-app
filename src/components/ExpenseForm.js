@@ -10,6 +10,7 @@ export default class ExpenseForm extends React.Component {
             amount: props.expense ? props.expense.amount.toString() : '',
             createdAt: props.expense ? props.expense.createdAt : Date.now(),
             calendarFocused: false,
+            mode: props.mode,
             error: ''
         };
     }
@@ -95,7 +96,8 @@ export default class ExpenseForm extends React.Component {
                     >
                     </textarea>
                     <button name="submit">
-                        Add Expense
+                        {this.state.mode === "add" && 'Add Expense'}
+                        {this.state.mode === "edit" && 'Edit Expense'}
                     </button>
                 </form>
             </div>

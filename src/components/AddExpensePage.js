@@ -12,6 +12,7 @@ const AddExpensePage = () => {
         <div>
             <h1>Add New Expense</h1>
             <ExpenseForm 
+                mode="add"
                 onSubmit={ (expense) => {
                     dispatch(addExpense({expense, uid}));
                     navigate('/dashboard');

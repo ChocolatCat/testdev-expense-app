@@ -20,8 +20,8 @@ const ExpenseDashboardPage = () => {
     const expensesTotal = selectExpensesTotal(visibleExpenses);
     return(
         <div>
-            <ExpenseListFilters />
             <ExpensesSummary expensesCount={expensesCount} expensesTotal={expensesTotal}/>
+            <ExpenseListFilters />
             <ExpenseList />
         </div>
     );
