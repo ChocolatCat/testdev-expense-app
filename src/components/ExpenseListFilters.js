@@ -11,13 +11,13 @@ const ExpenseListFilters = () => {
         <div className="content-container">
             <div className="input-group">
                 <div className="input-group__item">
-                    <input type="text" placeholder="Filter by Text" value={filters.text} onChange={(e) => {
+                    <input className="text-input" type="text" placeholder="Filter by Text" value={filters.text} onChange={(e) => {
                         //We useDispatch with Redux Toolkit using React hooks
                         dispatch(setTextFilter(e.target.value));
                     }}></input>
                 </div>
                 <div className="input-group__item">
-                    <select value={filters.sortBy} name="Sort By" onChange={(e) => {
+                    <select className="select-drop" value={filters.sortBy} name="Sort By" onChange={(e) => {
                         if(e.target.value === "date"){
                             dispatch(sortByDate());
                         }
@@ -31,6 +31,7 @@ const ExpenseListFilters = () => {
                 </div>
                 <div className="input-group__item">
                     <DatePicker 
+                        className="calendar"
                         selected={filters.startDate}
                         onChange={(date) => dispatch(setStartDate(Date.parse(date)))}
                         selectsStart
@@ -38,7 +39,10 @@ const ExpenseListFilters = () => {
                         endDate={filters.endDate}
                         dateFormat="dd/MM/yyyy"
                     />
+                </div>
+                <div className="input-group__item">
                     <DatePicker 
+                        className="calendar"
                         selected={filters.endDate}
                         onChange={(date) => dispatch(setEndDate(Date.parse(date)))}
                         selectsEnd

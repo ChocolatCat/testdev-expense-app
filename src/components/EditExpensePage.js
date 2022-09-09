@@ -16,22 +16,29 @@ const EditExpensePage = () => {
     const uid = useSelector(state => state.user.uid);
     return (
         <div>
-            <ExpenseForm 
-                mode="edit"
-                expense={expense}
-                onSubmit={(expense) => {
-                    dispatch(editExpense({
-                        id: id,
-                        updates: expense,
-                        uid: uid
-                    }));
+            <div className="page-header">
+                <div className="content-container">
+                <h1 className="page-header__title">Edit {expense.description}</h1>
+                </div>
+            </div>
+            <div className='content-container'>
+                <ExpenseForm 
+                    mode="edit"
+                    expense={expense}
+                    onSubmit={(expense) => {
+                        dispatch(editExpense({
+                            id: id,
+                            updates: expense,
+                            uid: uid
+                        }));
+                        navigate('/dashboard');
+                    }}
+                />
+                <button className="button--danger" onClick={()=>{
+                    dispatch(removeExpense({id, uid}));
                     navigate('/dashboard');
-                }}
-            />
-            <button onClick={()=>{
-                dispatch(removeExpense({id, uid}));
-                navigate('/dashboard');
-            }}>Remove</button>
+                }}>Remove {expense.description}</button>
+            </div>
         </div>
     );
 };

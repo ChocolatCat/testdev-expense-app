@@ -15,3 +15,8 @@
     border: none;
     color: $kyaru-blue;
 }
+
+.button--danger{
+    @extend .button;
+    background-color: #cc0000;
+}

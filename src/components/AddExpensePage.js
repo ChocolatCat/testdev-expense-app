@@ -10,14 +10,20 @@ const AddExpensePage = () => {
     const uid = useSelector(state => state.user.uid);
     return (
         <div>
-            <h1>Add New Expense</h1>
-            <ExpenseForm 
-                mode="add"
-                onSubmit={ (expense) => {
-                    dispatch(addExpense({expense, uid}));
-                    navigate('/dashboard');
-                }}
-            />
+            <div className="page-header">
+                <div className="content-container">
+                <h1 className="page-header__title">Add New Expense</h1>
+                </div>
+            </div>
+            <div className='content-container'>
+                <ExpenseForm 
+                    mode="add"
+                    onSubmit={ (expense) => {
+                        dispatch(addExpense({expense, uid}));
+                        navigate('/dashboard');
+                    }}
+                />
+            </div>
         </div>
     );
 }

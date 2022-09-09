@@ -1,12 +1,19 @@
 //rem - 16px
 
 //little hack to work at base10 rem
+
+//We set total height for stuff instead of adding bordering outside
+* {
+    box-sizing: border-box;
+}
+
 html{
     font-size: 62.5%;
 }
 
 body{
     color: $light-grey;
+    background-color: $kyaru-blue;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
 }

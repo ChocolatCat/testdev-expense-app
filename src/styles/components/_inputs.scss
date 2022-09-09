@@ -1,0 +1,42 @@
+.text-input{
+    border: 1px solid $grey-bone;
+    height: 50px;
+    font-size: $font-size-l;
+    font-weight: 300;
+    padding: $s-size;
+    width:100%;
+}
+
+.select-drop{
+    @extend .text-input;
+}
+
+.calendar{
+    @extend .text-input;
+}
+
+.text-area{
+    @extend .text-input;
+    height: 10rem;
+}
+
+//datepicker overrides for size
+.react-datepicker {
+    font-size: 1.2rem !important;
+}
+  
+.react-datepicker__current-month {
+    font-size: 1.4rem !important;
+}
+  
+.react-datepicker__header {
+    padding-top: 6px !important;
+}
+  
+.react-datepicker__navigation {
+    top: 0px !important;
+}
+  
+.react-datepicker__day-name, .react-datepicker__day {
+    margin: 0.6rem !important;
+}

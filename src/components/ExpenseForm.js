@@ -66,41 +66,45 @@ export default class ExpenseForm extends React.Component {
     }
     render(){
         return (
-            <div>
-                {this.state.error && <h1>{this.state.error}</h1>}
-                <form name="expenseForm" onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Description"
-                        autoFocus
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange}
-                    >
-                    </input>
-                    <input
-                        type="text"
-                        placeholder="Amount"
-                        value={this.state.amount}
-                        onChange={this.onAmountChange}
-                    >
-                    </input>
-                    <DatePicker 
-                        selected={this.state.createdAt}
-                        onChange={this.onDateChange}
-                        dateFormat="dd/MM/yyyy"
-                    />
-                    <textarea
-                        placeholder="Add a note to this expense! (optional)"
-                        value={this.state.note}
-                        onChange={this.onTextareaChange}
-                    >
-                    </textarea>
-                    <button name="submit">
-                        {this.state.mode === "add" && 'Add Expense'}
-                        {this.state.mode === "edit" && 'Edit Expense'}
-                    </button>
-                </form>
-            </div>
+            <form className="form" name="expenseForm" onSubmit={this.onSubmit}>
+            {this.state.error && <p className="form__error">{this.state.error}</p>}
+                <input
+                    className='text-input'
+                    type="text"
+                    placeholder="Description"
+                    autoFocus
+                    value={this.state.description}
+                    onChange={this.onDescriptionChange}
+                >
+                </input>
+                <input
+                    className='text-input'
+                    type="text"
+                    placeholder="Amount"
+                    value={this.state.amount}
+                    onChange={this.onAmountChange}
+                >
+                </input>
+                <DatePicker 
+                    className='calendar'
+                    selected={this.state.createdAt}
+                    onChange={this.onDateChange}
+                    dateFormat="dd/MM/yyyy"
+                />
+                <textarea
+                className='text-area'
+                    placeholder="Add a note to this expense! (optional)"
+                    value={this.state.note}
+                    onChange={this.onTextareaChange}
+                >
+                </textarea>
+                <button 
+                className='button'
+                name="submit">
+                    {this.state.mode === "add" && 'Save Expense'}
+                    {this.state.mode === "edit" && `Save edits for ${this.state.description}`}
+                </button>
+            </form>
         );
     }
 }
