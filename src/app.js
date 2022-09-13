@@ -1,3 +1,4 @@
+import "core-js/stable";
 import React, { useEffect } from 'react';
 //The import to client is supported. Barebones it's not.
 import ReactDOM from 'react-dom/client';
