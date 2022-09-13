@@ -47,26 +47,31 @@ async (uid, thunkAPI) => {
 
 export const expenseSlice = createSlice({
     name: 'expenses',
-    initialState: [],
+    initialState: {
+        expenses: [],
+        loading: true
+    },
     reducers: {
     },
     extraReducers: (builder) => {
         builder.addCase(addExpense.fulfilled, (state, { payload }) => {
-            state.push(payload);
+            state.expenses.push(payload);
         }),
         builder.addCase(addExpense.rejected, (state, { payload }) => {
             console.log('Tasukete!');
         }),
         builder.addCase(setExpenses.pending, (state, {payload}) => {
             console.log('Fetching Data...');
+            state.loading = true;
         }),
         builder.addCase(setExpenses.fulfilled, (state, {payload}) => {
-            console.log('Done...');
-            return payload;
+            state.expenses = payload;
+            state.loading = false;
         }),
         builder.addCase(setExpenses.rejected, (state, { payload }) => {
             console.log('Fetching Failed...');
-            return [];
+            state.expenses = [];
+            state.loading = false;
         }),
         builder.addCase(removeExpense.fulfilled, (state, { payload }) => {
             console.log("Removed");

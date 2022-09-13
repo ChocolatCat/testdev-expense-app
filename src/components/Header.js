@@ -10,7 +10,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.isLogged);
     return (
-        user ?
+        user &&
         <header className="header">
             <div className="content-container">
                 <div className="header__content">
@@ -21,7 +21,6 @@ const Header = () => {
                 </div>
             </div>
         </header>
-        : <p></p>
     );
 };
 

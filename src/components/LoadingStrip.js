@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LoadingStrip = () => (
-    <div>
+    <div className='content-container'>
         <h1>
             Loading...!
         </h1>

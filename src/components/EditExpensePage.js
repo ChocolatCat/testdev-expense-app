@@ -12,7 +12,7 @@ const EditExpensePage = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const navigate = useNavigate();
-    const expense = useSelector(state => selectExpenseById(state.expenses, id));
+    const expense = useSelector(state => selectExpenseById(state.expenses.expenses, id));
     const uid = useSelector(state => state.user.uid);
     return (
         <div>

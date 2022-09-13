@@ -6,7 +6,7 @@ import {selectExpenses} from '../selectors/expenses'
 
 const ExpenseList = () => {
     //We bypass connect. We use value because we would get an object otherwise
-    const expenses = useSelector(state => selectExpenses(state.expenses, state.filters));
+    const expenses = useSelector(state => selectExpenses(state.expenses.expenses, state.filters));
     return (
         <div className='content-container'>
             {expenses.length > 0 && 

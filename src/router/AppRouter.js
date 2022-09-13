@@ -23,14 +23,14 @@ const AppRouter = () => {
     const dispatch = useDispatch();
     auth.onAuthStateChanged((user) => {
         if(user){
+            history.replace('/dashboard');
             dispatch(setLogStatus(true));
             dispatch(setUid(user.uid));
-            history.replace('/dashboard');
         }
         else{
+            history.replace('/');
             dispatch(setLogStatus(false));
             dispatch(setUid(undefined));
-            history.replace('/');
         }
     });
     const isLogged = useSelector(state => state.user.uid);
