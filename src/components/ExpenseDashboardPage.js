@@ -13,6 +13,7 @@ const ExpenseDashboardPage = () => {
     const visibleExpenses = useSelector(state => selectExpenses(state.expenses.expenses, state.filters));
     const isLoading = useSelector(state => state.expenses.loading);
     const user = useSelector(state => state.user.uid);
+    const totalUserExpenses = useSelector(state => state.expenses.expenses).length;
     useEffect(() => {
         dispatch(setExpenses(user));
     }, [dispatch]);
@@ -25,7 +26,7 @@ const ExpenseDashboardPage = () => {
         <LoadingStrip />
         :
         <div>
-            <ExpensesSummary expensesCount={expensesCount} expensesTotal={expensesTotal}/>
+            <ExpensesSummary expensesCount={expensesCount} expensesTotal={expensesTotal} userTotal={totalUserExpenses}/>
             <ExpenseListFilters />
             <ExpenseList />
         </div>
